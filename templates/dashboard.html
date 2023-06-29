@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Qpay Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/gellix" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <img style="margin-top: 2px;" src="https://i.ibb.co/vqJCq86/Logo.png" alt="logo">
+      <h1 style="width: 80px; padding-left: 15px; color: #000000;">Qpay</h1>
+      <nav>
+          <ul style="padding-left: 970px;">
+            <li><a href="{{url_for('paymentpage')}}" style="color: #000000;">Make Payments</a></li>
+            <li><a href="{{url_for('historypage')}}" style="color: #000000;">Transaction history</a></li>
+            <li><a href="{{ url_for('logout') }}" style="color: #000000;">Logout</a></li>
+          </ul>
+      </nav>
+  </header>
+    <main>
+      <section id="details">
+        <div class="name">
+          <h2>Account holder's name</h2>
+          <p>{{user.Name}}</p>
+        </div>
+        <div class="address">
+          <h2>Address</h2>
+          <p>{{user.Address}}</p>
+        </div>
+        <div class="phone">
+          <h2>Phone number</h2>
+          <p>{{user.phone_no}}</p>
+        </div>
+      </section>
+      <section id="balance">
+        <div class="account-info">
+          <h2>Account Number</h2>
+          <p>{{ user.account_no }}</p>
+        </div>
+        <div class="balance-info">
+          <h2>Account Balance</h2>
+          <p>₹{{user.Balance}}</p>
+        </div>
+      </section>      
+
+      <section id="recent-transactions">
+        <h2>Recent Transactions</h2>
+        <ul>
+          {%for his in history%}
+          <li>
+            <span class="from">{{his.from_account}}</span>
+            <span class="to">{{his.amount}}</span>
+            <span class="amount">{{his.date}}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      <section id="bill-payments">
+        <h2>Bill Payments</h2>
+        <ul>
+          <li>
+            <span class="bill-payee">Electric Company</span>
+            <span class="bill-amount">$200.00</span>
+            <span class="bill-due-date">Due on April 20, 2023</span>
+          </li>
+          <li>
+            <span class="bill-payee">Water Company</span>
+            <span class="bill-amount">$100.00</span>
+            <span class="bill-due-date">Due on April 25, 2023</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy;2023 Qpay all copyrights reserved</p>
+    </footer>
+  </body>
+</html>
+<style>
+    body {
+    font-family: 'poppins',Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #fff;
+    overflow-x: hidden;
+    font-family: 'poppins',sans-serif;
+}
+
+header {
+    padding-bottom: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 5%;
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+main {
+  padding: 2em;
+}
+
+#details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+  border: 1px solid #ccc;
+border-radius: 5px;
+padding: 1em;
+}
+
+#details .name {
+  flex: 1;
+}
+
+#details .address{
+  flex: 1;
+  text-align: center;
+  margin-right: 20%;
+}
+#details .address{
+  flex:1;
+  text-align: center;
+}
+
+#details p {
+  font-size: 1.5em;
+  margin: 0;
+  margin-left: auto;
+}
+#balance {
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 5px;
+padding: 1em;
+margin-bottom: 2em;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+#balance .account-info {
+  flex: 1;
+}
+
+#balance .balance-info {
+  flex: 1;
+  text-align: right;
+}
+
+
+#balance h2 {
+margin-top: 0;
+}
+
+#balance p {
+  font-size: 2em;
+  margin: 0;
+  margin-left: auto;
+}
+
+
+/* Style the recent transactions section */
+#recent-transactions {
+margin-bottom: 2em;
+}
+
+#recent-transactions h2 {
+margin-top: 0;
+}
+
+#recent-transactions ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+#recent-transactions li {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1em;
+border-bottom: 1px solid #ccc;
+}
+
+.transaction-type {
+font-weight: bold;
+text-transform: uppercase;
+}
+
+.transaction-amount {
+font-weight: bold;
+}
+
+.transaction-date {
+color: #999;
+}
+
+/* Style the bill payments section */
+#bill-payments {
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 5px;
+padding: 1em;
+}
+
+#bill-payments h2 {
+margin-top: 0;
+}
+
+#bill-payments ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+#bill-payments li {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1em;
+border-bottom: 1px solid #ccc;
+}
+
+.bill-payee {
+font-weight: bold;
+}
+
+.bill-amount {
+font-weight: bold;
+}
+
+.bill-due-date {
+color: #999;
+}
+
+footer {
+background-color: transparent;
+color: #000000;
+text-align: center;
+padding: 1em;
+}
+</style>

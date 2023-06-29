@@ -1,0 +1,10 @@
+{
+    "params":{
+        "local_server":"true",
+        "local_uri":"mysql://root:@localhost/qpay",
+        "prod_uri":"mysql://root:@localhost/qpay",
+        "app_name":"QPAY",
+        "gmail_user":"rudythebeast1234@gmail.com",
+        "password":"@rudy6396"
+    }
+}

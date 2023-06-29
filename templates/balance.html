@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check Balance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/gellix" rel="stylesheet">
+	<style>
+		body {
+			background-image: url('https://i.ibb.co/c1MVbff/istockphoto-1354938137-612x612.jpg');
+            background-size: cover;
+	        font-family: 'poppins', Arial, sans-serif;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		form {
+			width: 400px;
+			margin: 50px auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px #ccc;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		input[type="text"], input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+
+		input[type="submit"] {
+			background-color: #4c66af;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+            transition: all 0.3s ease;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #1f4370;
+		}
+
+		.output {
+			margin-top: 30px;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px #ccc;
+			background-color: #fff;
+		}
+
+		.output label {
+			font-weight: bold;
+		}
+		.flash-message{
+    margin-left: 30%;
+    font-size: 1em;
+    margin-top: 2rem;
+    font-weight: bold;
+  }
+		.output span {
+			font-weight: normal;
+		}
+                    footer {
+            background-color: transparent;
+            color: #fff;
+            text-align: center;
+            padding-top: 40px;
+            }
+
+            footer p {
+            font-size: 14px;
+            }
+	</style>
+</head>
+<body>
+    <div class="intro">
+        <img style="margin-left: 43%; margin-top: 3%; width: 170px; height: auto;" src="https://i.ibb.co/bmf6JNn/Picsart-23-04-14-13-21-22-970.png" alt="logo">
+    </div>
+	<form method="POST" >
+        <h1>Balance Check</h1>
+		<label for="account-number">Account Number:</label>
+		<input type="text" id="account-number" name="account-no" required>
+
+		<label for="pin">Password:</label>
+		<input type="password" id="password" name="password" required>
+
+		<input type="submit" value="Check Balance">
+
+		<div class="output">
+			<label for="balance">Balance:</label>
+			<p>{{params.Balance}}</p>
+		</div>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+				<div class="flash-message {{ category }}">
+					{{ message }}
+				</div>
+				{% endfor %}
+			  {% endif %}
+			{% endwith %}
+	</form>
+    <footer>
+        <p>&copy; 2023 Qpay all copyrights reserved</p>
+    </footer>
+</body>
+</html>

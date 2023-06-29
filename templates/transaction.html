@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/gellix" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'poppins', sans-serif;
+      font-size: 16px;
+      color: #333;
+      background-color: #f8f8f8;
+    }
+
+    header {
+    padding: 11px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 5%;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-size: 28px;
+    color: #000000;
+}
+nav ul {
+    float: right;
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #5559a4;
+}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .header-link {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      color: #555;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .header-link:hover {
+      color: #333;
+    }
+
+    .table-container {
+      margin: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .table-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .table th,
+    .table td {
+      padding: 12px 20px;
+    }
+
+    .table th {
+      background-color: #f8f8f8;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .table td {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .table tr:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+
+    @media screen and (max-width: 768px) {
+      .header-links {
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        margin-right: auto;
+      }
+
+      .header-link {
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      .table th,
+      .table td {
+        padding: 12px 10px;
+      }
+
+      .table-title {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <img style="margin-top: 2px;" src="https://i.ibb.co/vqJCq86/Logo.png" alt="logo">
+        <h1 style="width: 80px; padding-left: 15px; color: #000000;">Qpay</h1>
+        <nav>
+            <ul style="padding-left: 1250px;">
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="balance.html">logout</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="container">
+  <div class="table-container">
+    <h2 class="table-title">Transaction History</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Transaction Id</th>
+          <th>from _account</th>
+          <th>to_account</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      {% for his in history %}
+      <tbody>
+        <tr>
+          <td>{{his.transaction_id}}</td>
+          <td>{{his.from_account}}</td>
+          <td>{{his.to_account}}</td>
+          <td>{{his.amount}}</td>
+          <td>{{his.date}}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+</body>
+<footer style="margin-top: 20%; padding-left: 42%; padding-bottom: 30px; background-color: #000000;">
+    <p style="color:#fff; padding-top: 17px;" >© 2023 Qpay all copyrights reserved</p>    
+</footer>
+</html>

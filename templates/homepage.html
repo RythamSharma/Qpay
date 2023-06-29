@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{params['app_name']}}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/gellix" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img style="margin-top: 2px;" src="https://i.ibb.co/vqJCq86/Logo.png" alt="logo">
+        <h1 style="width: 80px; padding-left: 15px; color: #fff;">{{params['app_name']}}</h1>
+        <nav>
+            <ul style="padding-left: 1070px;">
+                <li><a href="{{url_for('homepage')}}">Home</a></li>
+                <li><a href="{{url_for('loginpage')}}">login</a></li>
+                <li><a href="{{url_for('signuppage')}}">Sign up</a></li>
+                <li><a href="{{url_for('balancepage')}}">Balance</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <h2 style="color: #fff;">Manage your finances with ease</h2>
+            <a href="{{url_for('signuppage')}}" class="btn">Open an Account</a>
+        </section>
+        <div class="iphone">
+            <img style="width: 110%; height: auto;" src="https://i.ibb.co/TK1T6CQ/iphone12pro.png" alt="">
+        </div>
+        <section id="features">
+            <h3 style="margin-left: 1%; color: #fff;">Qpay serves</h3>
+            <ul style="color:#fff">
+                <li><i class="fa fa-mobile"></i>Mobile app for banking on-the-go</li>
+                <li><i class="fa fa-lock"></i>Secure and encrypted transactions</li>
+                <li><i class="fa fa-money"></i>Multiple account types available</li>
+                <li><i class="fa fa-check"></i>Easy account management and transfers</li>
+            </ul>
+        </section>
+        <div class="security" style="float: left; width: 800px;" >
+            <h1 style="font-family: 'poppins'; color: #ffffff; padding-top: 300px;">Maximum security for your digital assets</h1>
+            <p style="font-family: 'poppins'; color: #ffffff; padding-top: 40px; width: 30%; height: auto;">We secure customer and investor funds from cyber attacks, internal collusion and human error with a multi-layer technology that combines the latest breakthroughs in MPC cryptography with hardware isolation.</p>
+        </div>
+        <div class="laptop" >
+            <img style=" width: 50%; height: auto; margin-top: 300px;"  src="https://i.ibb.co/n00gySK/img3.png" alt="laptop picture">
+        </div>
+        <div class="partners" style="margin-top: 250px; margin-left: -50px;  background: linear-gradient(to bottom right, #2118a6, #9c9595); border-radius: 20px; width: 110%;">
+            <p style="font-family: 'Gellix', sans-serif; font-size: xx-large; color: #ffffff; padding: 50px; margin-left: 95px;">Qpay works with the leading authorities in custody and compliance</p>
+            <img style="margin-left: 310px; padding-top: 1%;" src="https://i.ibb.co/jLFrLfS/aes.png" alt="aes">
+            <img src="https://i.ibb.co/5W5VQ8C/aws.png" alt="aws">
+            <img src="https://i.ibb.co/nbXXhTB/ciphertrace.png" alt="ciphertrace">
+            <br>
+            <img style="margin-left: 310px; padding-top: 5%;" src="https://i.ibb.co/qmqMW1B/cloudfare.png" alt="cloudfare">
+            <img src="https://i.ibb.co/7t5ZyFJ/fireblocks.png" alt="fireblocks">
+            <img src="https://i.ibb.co/Y2wdv4d/metamap.png" alt="metamap">
+        </div>
+        </main>
+    <footer>
+        <p>&copy; 2023 Qpay all copyrights reserved</p>
+    </footer>
+</body>
+</html>
+<style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'poppins',Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-image: url('https://i.ibb.co/Gpz3BMz/background.jpg');
+    background-size: cover;
+    background-position-x: 335%;
+    overflow-x: hidden;
+}
+header {
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 5%;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-size: 28px;
+    color: #ffffff;
+}
+.iphone{
+    margin-left: 66%;
+}
+.laptop{
+    margin-left: 50%;
+    width: 80%;
+    height: auto;
+}
+nav ul {
+    float: right;
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #7f7f7f;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+#hero{
+    width: 50%;
+    float: left;
+}
+
+#hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #14194c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+}
+
+.btn:hover {
+    background-color: #000000;
+}
+
+#features {
+    margin-top: -250px;
+}
+
+#features h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#features ul {
+list-style: none;
+}
+
+#features ul li {
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+}
+
+#features ul li i {
+font-size: 24px;
+margin-right: 10px;
+color: #ffffff;
+}
+
+footer {
+background-color: transparent;
+color: #fff;
+text-align: center;
+padding: 20px;
+}
+
+footer p {
+font-size: 14px;
+}
+@media only screen and (max-width: 768px) {
+header {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+nav ul {
+    margin-top: 20px;
+}
+
+nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+#hero {
+    padding: 0px 0;
+}
+
+#hero h2 {
+    font-size: 24px;
+}
+
+.btn {
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+#features ul li {
+    font-size: 14px;
+}
+
+footer p {
+    font-size: 12px;
+}
+}
+
+@media only screen and (max-width: 480px) {
+#hero h2 {
+font-size: 20px;
+}
+.btn {
+    font-size: 12px;
+    padding: 8px 16px;
+}
+
+#features ul li {
+    font-size: 12px;
+}
+
+footer p {
+    font-size: 10px;
+}
+
+}
+</style>
